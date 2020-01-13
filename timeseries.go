@@ -2,7 +2,7 @@ package solrts
 
 import (
 	"github.com/buger/jsonparser"
-	"stash.uol.intranet/pdeng/solr-lib/solr"
+	"github.com/uol/solr/solr"
 )
 
 const (
