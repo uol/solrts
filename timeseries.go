@@ -1,6 +1,7 @@
 package solrts
 
 import (
+	"fmt"
 	"github.com/buger/jsonparser"
 	"github.com/uol/solr/solr"
 )
@@ -10,7 +11,7 @@ const (
 	rawResponse string = "response"
 	rawID       string = "id"
 	rawMetric   string = "metric"
-	rawType     string = "types"
+	rawType     string = "type"
 	rawChildDoc string = "_childDocuments_"
 	rawTagKey   string = "tag_key"
 	rawTagValue string = "tag_value"
@@ -44,26 +45,29 @@ func (p *TSDocumentParser) Parse(raw []byte) (interface{}, error) {
 		if doc.ID, err = jsonparser.GetString(value, rawID); err != nil {
 			return
 		}
+
 		if doc.Metric, err = jsonparser.GetString(value, rawMetric); err != nil {
 			return
 		}
+
 		if doc.Type, err = jsonparser.GetString(value, rawType); err != nil {
 			return
 		}
+
 		child, _, _, err := jsonparser.Get(value, rawChildDoc)
 		if err != nil {
 			return
 		}
-		childs, err := parserChildsDocumentsObject(child)
-		if err != nil {
+		if doc.Tags, err = parserChildsDocumentsObject(child); err != nil {
 			return
 		}
-		doc.Tags = childs
+
 		docsArray = append(docsArray, doc)
 	}, rawResponse, rawDoc)
 	if err != nil {
-		return nil, err
+		return res.Docs, err
 	}
+	fmt.Println(res.Docs)
 	res.Docs = docsArray
 	return res.Docs, nil
 }
@@ -76,6 +80,7 @@ func parserChildsDocumentsObject(raw []byte) ([]Tag, error) {
 		if tag.Name, err = jsonparser.GetString(value, rawTagKey); err != nil {
 			return
 		}
+		fmt.Print(tag.Name)
 		if tag.Value, err = jsonparser.GetString(value, rawTagValue); err != nil {
 			return
 		}
