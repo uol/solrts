@@ -1,7 +1,6 @@
 package solrts
 
 import (
-	"fmt"
 	"github.com/buger/jsonparser"
 	"github.com/uol/solr/solr"
 )
@@ -80,7 +79,7 @@ func parserChildsDocumentsObject(raw []byte) ([]Tag, error) {
 		if tag.Name, err = jsonparser.GetString(value, rawTagKey); err != nil {
 			return
 		}
-		fmt.Print(tag.Name)
+
 		if tag.Value, err = jsonparser.GetString(value, rawTagValue); err != nil {
 			return
 		}
