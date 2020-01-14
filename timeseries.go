@@ -23,10 +23,10 @@ type TSDocumentParser struct {
 
 // Doc - a ts document structs
 type Doc struct {
-	ID     string
-	Metric string
-	Type   string
-	Tags   []Tag
+	ID     string `json:"id"`
+	Metric string `json:"metric"`
+	Type   string `json:"type"`
+	Tags   []Tag  `json:"tags"`
 }
 
 // Tag - a ts tag struct
@@ -67,7 +67,7 @@ func (p *TSDocumentParser) Parse(raw []byte) (interface{}, error) {
 	if err != nil {
 		return res.Docs, err
 	}
-	fmt.Println(res.Docs)
+
 	res.Docs = docsArray
 	return res.Docs, nil
 }
