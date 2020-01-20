@@ -1,0 +1,11 @@
+hash: 685f41ba3800f54a687e5f668b6df57eff3f32e98a38457393b0b123bf6f92fb
+updated: 2020-01-20T16:24:34.748599421-03:00
+imports:
+- name: github.com/buger/jsonparser
+  version: 1a29609e0929ccd5666069e2e7213c2c69fa4ac2
+- name: github.com/uol/solr
+  version: 6f78f13b5f1d1cf6c83ed5f8c10e6c45f3616135
+  subpackages:
+  - parser
+  - solr
+testImports: []

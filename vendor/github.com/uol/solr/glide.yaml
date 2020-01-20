@@ -1,0 +1,3 @@
+package: github.com/uol/solr
+import:
+- package: github.com/buger/jsonparser
