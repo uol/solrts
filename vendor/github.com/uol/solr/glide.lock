@@ -1,6 +1,22 @@
-hash: 3245b5dc4415661a31e547af8f0e1eb5829cff77f254f81ca44864a46a9f637a
-updated: 2020-01-10T17:46:55.799847184-03:00
+hash: f26392bb43957d0b36726f3f352c679c27c74439307368ebaec5c02aaa312716
+updated: 2020-03-02T20:45:55.981037277-03:00
 imports:
 - name: github.com/buger/jsonparser
   version: 1a29609e0929ccd5666069e2e7213c2c69fa4ac2
-testImports: []
+- name: github.com/uol/funks
+  version: f6a04c7785966773f32313e0c25c9343738369e9
+- name: github.com/uol/gotest
+  version: a7f82102d67468653dffe8fc637d4f885a0accde
+testImports:
+- name: github.com/davecgh/go-spew
+  version: d8f796af33cc11cb798c1aaeb27a4ebc5099927d
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: 5d4384ee4fb2527b0a1256a821ebfc92f91efefc
+  subpackages:
+  - difflib
+- name: github.com/stretchr/testify
+  version: f35b8ab0b5a2cef36673838d662e249dd9c94686
+  subpackages:
+  - assert
