@@ -2,7 +2,7 @@ package solrts
 
 import (
 	"github.com/buger/jsonparser"
-	lib "github.com/uol/solr/solr"
+	"github.com/uol/solr"
 )
 
 const (
@@ -36,7 +36,7 @@ type Tag struct {
 
 // Parse - parses the pure document input from JSON
 func (p *TSDocumentParser) Parse(raw []byte) (interface{}, error) {
-	res := &lib.Response{}
+	res := &solr.Response{}
 	var docsArray []Doc
 
 	_, err := jsonparser.ArrayEach(raw, func(value []byte, dataType jsonparser.ValueType, offset int, err error) {
